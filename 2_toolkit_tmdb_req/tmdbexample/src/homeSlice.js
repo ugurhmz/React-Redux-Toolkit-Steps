@@ -21,3 +21,4 @@ export const homeSlice = createSlice({
 
 export const { getApiConfiguration, getGenres} = homeSlice.actions
 export default homeSlice.reducer
+

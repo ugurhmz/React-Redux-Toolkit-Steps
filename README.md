@@ -20,7 +20,7 @@
 3. slice.js oluşturulur.
 4. App.js içindede -> useSelector & dispatch kullanımları yapılır.
 
-## JSONPLACEHOLDER ile Redux Toolkit  createAsyncThunk ile API REQUEST
+## [A] JsonPlaceholder ile Redux Toolkit  createAsyncThunk ile API REQUEST
 
 - Kullanılan end-point:  https://jsonplaceholder.typicode.com/posts
 
@@ -117,3 +117,26 @@ export default App
 ```
 
 - console.log'ta responsu görebilirsiniz. . .
+
+## [B]     The Movie DB API Request
+
+##### Redux Devtools Görünümü:
+![Alt text](reduxtools.png)
+
+- payloadObject ve genres initialState'lerim.
+- reducers kısmındaki action'ların payloadları, initialState'lere setleniyor.
+
+## Tüm yapının tek bir Yerde Gösterimi :
+
+![Alt text](allstructure.png)
+
+- 1 Numaralı : api.js içindeki, fetchDataFromApi ile, içine parametre olarak verilen end-pointe axios istek yapıyoruz. Gelen datayı, return ile çağrılan yere dönüyoruz. Bu dönülen datayı ise .then() ile yakalıyoruz.
+
+- 2 Numaralı : .then() ile yakaladığımız data'yı res.results ile, homeSlice reducerine yolluyoruz.
+Burdaki res.results then ile yakalanıp,  res dediğimiz verinin içindeki results kısmına ulaşıyoruz. 
+Bunuda homeSlice reducerine yolladıktan sonra -> o actionın payloadıyla alıp, 3 numaralı kısımda oluşturulan initialState kısımlarına setliyoruz.
+
+- 3 Numaralı: 2. basamakta gelen datayı, initialState dataları setleniyor.
+
+- useSelector kısmı ile ==> 3 numaralı alandaki setlenen veriye ulaşıp, App.jsx içinde <div>'ler arasında kullanmaya yarıyor. Ben burda consola bastım, datanın gelip gelmediği kontrolü için.
+
