@@ -88,7 +88,7 @@ export default postSlice.reducer // BURAYI UNUTMAYIN, store.js'taki postReducer 
 ````
 ___
 
-3.  App.js
+4.  App.js
 ```javascript
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
